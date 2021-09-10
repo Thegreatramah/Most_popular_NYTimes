@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">NewYorkTimesApp</string>
+    <string name="news_details_screen">News Detail</string>
+    <string name="app_title">NY Times Most Popular</string>
+    <string name="image_description">ImageView for showing Images</string>
+    <string name="retry">Retry</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="post_error">An error occurred while loading the posts</string>
+    <string name="no_more_msg">No More Posts are avaiable</string>
+    <string name="middle">middle Items</string>
+    <string name="detail_arrow">showing detail arrow</string>
+    <string name="drawer_description">drawer description</string>
+    <string name="search_descrption">Search Description</string>
+    <string name="more_item_description">More Item Description</string>
+</resources>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ny.nytimesapp.viewModel.NewsViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="3dp"
+        android:onClick="onMoveToDetails"
+        app:cardElevation="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="@dimen/dp5">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="@dimen/dp0"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                app:layout_constraintDimensionRatio="6:1"
+                app:layout_constraintLeft_toRightOf="@+id/imgView"
+                app:layout_constraintTop_toTopOf="@+id/parent"
+                app:mutableText="@{viewModel.getTitle()}" />
+
+            <ImageView
+                android:id="@+id/imgView"
+                android:layout_width="@dimen/dp55"
+                android:layout_height="@dimen/dp55"
+                android:contentDescription="@string/image_description"
+                android:scaleType="centerInside"
+                android:src="@drawable/circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/by_Line"
+                android:layout_width="@dimen/dp220"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/sp12"
+                android:textStyle="normal"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@id/imgView"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:mutableText="@{viewModel.getByLine()}" />
+
+            <LinearLayout
+                android:layout_width="@dimen/dp220"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:gravity="center_vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgView"
+                app:layout_constraintTop_toBottomOf="@id/by_Line">
+
+                <TextView
+                    android:id="@+id/source"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp15"
+                    android:layout_weight=".5"
+                    android:ellipsize="end"
+                    android:maxEms="10"
+                    android:maxLines="1"
+                    android:textColor="@color/text_grey"
+                    android:textSize="@dimen/sp12"
+                    android:textStyle="normal"
+                    app:mutableText="@{viewModel.getSource()}"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/published_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:layout_weight=".5"
+                    android:drawableStart="@drawable/ic_perm_contact_calendar_black_24dp"
+                    android:ellipsize="end"
+                    android:maxEms="10"
+                    android:maxLines="1"
+                    android:textColor="@color/text_grey"
+                    android:textSize="@dimen/sp12"
+                    android:textStyle="normal"
+                    app:mutableText="@{viewModel.getDate()}"
+                    tools:ignore="RtlCompat" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/detail_arrow"
+                android:src="@drawable/ic_navigate_next_black_24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
